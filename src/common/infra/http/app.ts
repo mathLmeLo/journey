@@ -12,6 +12,8 @@ import chalk from 'chalk';
 import cors from 'cors';
 import http from 'http';
 
+import RabbitMQServer from '@common/infra/rabbitmq';
+
 import GlobalExceptionHandler from '@common/infra/http/middlewares/GlobalExceptionHandler';
 import SwaggerOptions from '@docs/index';
 import InitDatabase from '@common/infra/mongoose';
@@ -34,6 +36,7 @@ class App {
     this.info = chalk.bgGreenBright(`Service running at port ${this.port}.`);
     this.app = express();
     this.server = http.createServer(this.app);
+    this.rabbitmq();
     this.database();
     this.middlewares();
     this.routes();
@@ -42,6 +45,10 @@ class App {
 
   private database() {
     InitDatabase();
+  }
+
+  private rabbitmq() {
+    RabbitMQServer.init();
   }
 
   private middlewares(): void {
