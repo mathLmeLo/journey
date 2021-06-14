@@ -24,3 +24,7 @@ E seus modulos, rotas, controlles e services, estão contidos debaixo da pasta `
 http://localhost:5555/api/docs/#/
 
 Documentados com Swagger, podem ser testados prontamente na url acima com o app executando.
+
+## Estrutura de Filas do RabbitMQ
+
+![RabbitMQ](Journey_RabbitMQ.png?raw=true)
