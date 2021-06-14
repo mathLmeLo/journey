@@ -1,4 +1,5 @@
 import * as DealDocs from '@modules/deals/infra/docs';
+import * as OrderDocs from '@modules/orders/infra/docs';
 
 const swaggerDefinition = {
   openapi: '3.0.3',
@@ -43,11 +44,16 @@ const options = {
   tags: [{
     name: 'Deal',
     description: 'CRUD para Deals',
+  }, {
+    name: 'Order',
+    description: 'CRUD para Orders',
   }],
   paths: {
     // Deal paths
     '/deals/': { post: DealDocs.RegisterDealDoc },
     '/deals/publish/won': { post: DealDocs.FindWonAndPublishDoc },
+    // Order paths
+    '/orders/': { post: OrderDocs.CreateOrderDoc },
   },
 };
 

@@ -30,16 +30,16 @@
       ],
       "@docs/*": [
         "./src/docs/*",
-        "./src/modules/blog/infra/docs/*.ts",
-        "./src/modules/areaCode/infra/docs/*.ts"    
+        "./src/modules/deals/infra/docs/*.ts",
+        "./src/modules/orders/infra/docs/*.ts"    
       ],
       "@models/*": [
-        "./src/modules/blog/infra/mongoose/models/*.ts",
-        "./src/modules/areaCode/infra/mongoose/entities/*.ts"
+        "./src/modules/deals/infra/mongoose/models/*.ts",
+        "./src/modules/orders/infra/mongoose/entities/*.ts"
       ],
       "@routes/*": [
-        "./src/modules/blog/infra/http/routes/*.ts",
-        "./src/modules/areaCode/infra/http/routes/*.ts"
+        "./src/modules/deals/infra/http/routes/*.ts",
+        "./src/modules/orders/infra/http/routes/*.ts"
       ],
       "@factories/*": ["./src/config/factories/*"]
     }
