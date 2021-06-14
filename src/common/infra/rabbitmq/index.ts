@@ -34,6 +34,10 @@ class RabbitMQServer {
     await this.channel.bindQueue(ordered.queue, MessageBrokerConfig.rabbitmq.journey.exchanges.done, MessageBrokerConfig.rabbitmq.journey.routingKeys.ordered);
 
     // Consumer
+    // this.channel.consume(createPrescription.queue, (msg: ConsumeMessage) => {
+    //   WonDealsHandler(this.channel, msg);
+    // }, { noAck: false });
+
     // this.channel.consume(ordered.queue, (msg: ConsumeMessage) => {
     //   OrderedDealsHandler(this.channel, msg);
     // }, { noAck: false });

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 interface SearchDealsFiltersDTO {
-  term?: string;
+  term: string;
+  status: string;
   fields?: string;
   exact_match?: string;
   person_id?: string;

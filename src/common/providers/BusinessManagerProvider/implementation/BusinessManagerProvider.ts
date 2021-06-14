@@ -16,6 +16,7 @@ class BusinessManagerProvider implements IBusinessManagerProvider {
   public async createOrder(data: CreateOrderDTO): Promise<Object> {
     const builder = new xml2js.Builder();
     const xml = builder.buildObject(data);
+    console.log(xml); // REMOVER
     return this.businessManagerApi.post('/pedido/json', null, { params: { apikey: BusinessManagerConfig.token, xml } })
       .then((res) => res.data)
       .catch((res) => { throw new AppError('Could not create user Record in keycloak database', res.response.status); });

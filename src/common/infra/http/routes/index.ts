@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-// import orderRoutes from '@modules/order/infra/http/routes/OrderRoutes';
+import DealRoutes from '@modules/deals/infra/http/routes/DealRoutes';
 
 const routes = Router();
 
-// routes.use('/orders', orderRoutes);
+routes.use('/deals', DealRoutes);
 
 export default routes;
