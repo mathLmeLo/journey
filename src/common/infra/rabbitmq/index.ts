@@ -2,7 +2,8 @@ import amqplib, { ConsumeMessage, Connection, Channel, Options } from 'amqplib';
 
 import MessageBrokerConfig from '@config/MessageBrokerConfig';
 
-// import OrderedDealsHandler from '@common/infra/rabbitmq/handlers/OrderedDealsHandler'
+import OrderedDealsHandler from '@common/infra/rabbitmq/handlers/OrderedDealsHandlerMONGO';
+import WonDealsHandler from '@common/infra/rabbitmq/handlers/WonDealsHandlerBLING';
 
 import ConnectionInfoResponse from '@common/infra/rabbitmq/responses/IConnectionInfoResponse';
 
@@ -34,13 +35,13 @@ class RabbitMQServer {
     await this.channel.bindQueue(ordered.queue, MessageBrokerConfig.rabbitmq.journey.exchanges.done, MessageBrokerConfig.rabbitmq.journey.routingKeys.ordered);
 
     // Consumer
-    // this.channel.consume(createPrescription.queue, (msg: ConsumeMessage) => {
-    //   WonDealsHandler(this.channel, msg);
-    // }, { noAck: false });
+    this.channel.consume(won.queue, (msg: ConsumeMessage) => {
+      WonDealsHandler(this.channel, msg);
+    }, { noAck: false });
 
-    // this.channel.consume(ordered.queue, (msg: ConsumeMessage) => {
-    //   OrderedDealsHandler(this.channel, msg);
-    // }, { noAck: false });
+    this.channel.consume(ordered.queue, (msg: ConsumeMessage) => {
+      OrderedDealsHandler(this.channel, msg);
+    }, { noAck: false });
   }
 
   public async publish(exchange: string, key: string, data: Buffer, options?: Options.Publish): Promise<void> {

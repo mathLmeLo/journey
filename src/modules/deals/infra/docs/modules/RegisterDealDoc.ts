@@ -13,15 +13,19 @@ const RegisterDeal = {
             title: {
               type: 'string',
             },
+            value: {
+              type: 'string',
+            },
             status: {
               type: 'string',
             },
           },
-          required: ['org', 'title', 'status'],
+          required: ['org', 'title', 'value', 'status'],
         },
         example: {
           org: 'org_name',
           title: 'deal_name',
+          value: '1.0',
           status: 'won',
         },
       },

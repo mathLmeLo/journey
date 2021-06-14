@@ -34,7 +34,7 @@ const messageBrokerConfig: IMessageBrokerConfig = {
   rabbitmq: {
     maxRetries: process.env.RABBITMQ_MAX_RETRIES ? Number(process.env.RABBITMQ_MAX_RETRIES) : 3,
     retryDelay: process.env.RABBITMQ_RETRY_DELAY ? Number(process.env.RABBITMQ_RETRY_DELAY) : 3000,
-    hostname: process.env.RABBITMQ_HOSTNAME || 'amqp://localhost',
+    hostname: process.env.RABBITMQ_HOSTNAME || 'amqps://tqaqpsty:a2YbQ3pBNGf23dU25KXBS_GbOJOzNSqh@jackal.rmq.cloudamqp.com/tqaqpsty',
     port: Number(process.env.RABBITMQ_PORT) || 5672,
     default: {
       exchanges: {

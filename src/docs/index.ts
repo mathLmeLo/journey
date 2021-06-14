@@ -53,7 +53,7 @@ const options = {
     '/deals/': { post: DealDocs.RegisterDealDoc },
     '/deals/publish/won': { post: DealDocs.FindWonAndPublishDoc },
     // Order paths
-    '/orders/': { post: OrderDocs.CreateOrderDoc },
+    '/orders/': { post: OrderDocs.CreateOrderDoc, get: OrderDocs.GetOrderDoc },
   },
 };
 
